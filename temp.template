@@ -1,0 +1,24 @@
+{% block %}
+    {% client %}((I('| a)m|my name is) )?(.*){% endclient %}
+    {% prev %}(.*)Can you please tell me your name{% endprev %}
+    {% response %}Thank you {name:%4}{% endresponse %}
+{% endblock %}
+
+{% block %}
+    {% client %}Do you remember my name{% endclient %}
+    {% response %}{% if {name} %}Yes I do {name}{% else %}No,{% chat what is my name %}{% endif %}{% endresponse %}
+{% endblock %}
+{% block %}
+    {% client %}(Do you know about|what is|who is|tell me about)(?P<query>.*){% endclient %}
+    {% response %}{% call whoIs:%2 %}{% endresponse %}
+{% endblock %}
+{% block %}
+    {% client %}Hello(.*){% endclient %}
+    {% response %}Hello... I'm glad you could drop by today.{% endresponse %}
+    {% response %}Hi there... how are you today?{% endresponse %}
+    {% response %}Hello, how are you feeling today?{% endresponse %}
+{% endblock %}
+{% block %}
+    {% client %}Your name ?{% endclient %}
+    {% response %}My name is Chatbot :) {% endresponse %}
+{% endblock %}
